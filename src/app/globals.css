@@ -1124,6 +1124,32 @@ svg {
   text-decoration: none;
 }
 
+.project-aside__save {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.76rem;
+  font-weight: 680;
+  justify-content: space-between;
+  margin-top: 22px;
+  min-height: 44px;
+  padding: 0 13px;
+  transition: border-color 160ms ease, color 160ms ease;
+  width: 100%;
+}
+
+.project-aside__save:hover {
+  border-color: var(--blue);
+  color: var(--blue-dark);
+}
+
+.project-aside__save span {
+  font-size: 1rem;
+}
+
 .project-content {
   font-size: 1rem;
   line-height: 1.76;
@@ -1764,6 +1790,206 @@ svg {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm 16mm;
+    size: A4;
+  }
+
+  * {
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: var(--surface);
+    color: var(--ink);
+  }
+
+  .site-header,
+  .site-footer,
+  .breadcrumb,
+  .project-commitment,
+  .project-aside__save,
+  .project-showcase {
+    display: none !important;
+  }
+
+  .project-hero {
+    background: transparent;
+    border-bottom: 1px solid var(--line-strong);
+    color: var(--ink);
+  }
+
+  .project-hero__inner {
+    max-width: none;
+    padding: 0 0 10mm;
+  }
+
+  .project-hero__inner::before {
+    color: var(--blue-dark);
+    content: "ALX Data Portfolio Hub · Project brief";
+    display: block;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 14mm;
+    text-transform: uppercase;
+  }
+
+  .project-hero__grid {
+    display: block;
+  }
+
+  .project-hero__kicker {
+    color: var(--blue-dark);
+    font-size: 8pt;
+    margin-bottom: 4mm;
+  }
+
+  .project-hero h1 {
+    color: var(--navy);
+    font-size: 30pt;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    max-width: none;
+  }
+
+  .project-hero__summary {
+    color: #333b4b;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    margin-top: 6mm;
+    max-width: 160mm;
+  }
+
+  .project-hero__aside {
+    margin-top: 8mm;
+  }
+
+  .project-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .project-facts > div {
+    border-bottom: 1px solid var(--line);
+    display: block;
+    padding: 3mm 0;
+  }
+
+  .project-facts dt {
+    color: var(--muted);
+    font-size: 7pt;
+    margin-bottom: 1.5mm;
+  }
+
+  .project-facts dd {
+    color: var(--ink);
+    font-size: 9pt;
+  }
+
+  .project-layout {
+    display: block;
+    max-width: none;
+    padding: 8mm 0 0;
+  }
+
+  .project-aside {
+    border-top: 2px solid var(--blue);
+    margin-bottom: 10mm;
+    position: static;
+  }
+
+  .project-aside > p {
+    font-size: 7.5pt;
+    margin: 4mm 0 2mm;
+  }
+
+  .project-aside ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2mm;
+    margin-bottom: 3mm;
+  }
+
+  .project-aside li {
+    border: 1px solid var(--line);
+    font-size: 8pt;
+    padding: 1.5mm 2.5mm;
+  }
+
+  .project-aside a {
+    color: var(--ink);
+    font-size: 8pt;
+  }
+
+  .project-content {
+    font-size: 9.5pt;
+    line-height: 1.55;
+  }
+
+  .project-content h2 {
+    break-after: avoid;
+    font-size: 18pt;
+    margin: 9mm 0 4mm;
+    padding-top: 4mm;
+  }
+
+  .project-content h3 {
+    break-after: avoid;
+    font-size: 12pt;
+    margin: 7mm 0 3mm;
+  }
+
+  .project-content p,
+  .project-content li {
+    color: var(--ink);
+  }
+
+  .project-content p {
+    margin-bottom: 3.5mm;
+  }
+
+  .project-content li {
+    margin-bottom: 1.5mm;
+  }
+
+  .table-scroll {
+    overflow: visible;
+  }
+
+  .project-content table {
+    break-inside: avoid;
+    font-size: 7.5pt;
+    min-width: 0;
+  }
+
+  .project-content th,
+  .project-content td {
+    padding: 2mm 2.5mm;
+  }
+
+  .project-content tr,
+  .project-content pre {
+    break-inside: avoid;
+  }
+
+  .project-content pre {
+    background: #ebeae3;
+    color: var(--ink);
+    font-size: 7.5pt;
+    line-height: 1.45;
+    margin: 5mm 0;
+    overflow: visible;
+    padding: 4mm;
+    white-space: pre-wrap;
+  }
+
+  .project-content a {
+    color: var(--blue-dark);
   }
 }
 

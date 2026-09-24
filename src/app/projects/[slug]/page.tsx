@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowUpRightIcon, ClockIcon } from "@/components/icons";
 import { MarkdownContent } from "@/components/markdown-content";
 import { ProjectCommitment } from "@/components/project-commitment";
+import { SaveProjectPdf } from "@/components/save-project-pdf";
 import { ShowcaseVisual } from "@/components/showcase-visual";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -94,6 +95,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <ArrowUpRightIcon />
               </a>
             )}
+            <SaveProjectPdf />
           </aside>
 
           <article>
