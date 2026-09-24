@@ -21,6 +21,7 @@ type ShowcaseRow = {
 };
 
 const publicColumns = "id,slug,title,learner_name,project_title,tools,summary,github_url,live_url,cover_image_path,public_cover_image_path,status,submitted_at,projects(slug,course,domain)";
+const publicColumnsWithProject = "id,slug,title,learner_name,project_title,tools,summary,github_url,live_url,cover_image_path,public_cover_image_path,status,submitted_at,projects!inner(slug,course,domain)";
 const staffColumns = `${publicColumns},learner_email`;
 
 function projectDetails(row: ShowcaseRow) {
@@ -85,6 +86,23 @@ export async function getApprovedShowcaseBySlug(slug: string): Promise<ShowcaseE
   if (!data) return undefined;
   const row = data as unknown as ShowcaseRow;
   return toEntry(row, publicImageUrl(supabase, row.public_cover_image_path));
+}
+
+export async function getApprovedShowcasesForProject(projectSlug: string, limit = 3): Promise<ShowcaseEntry[]> {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("showcase_submissions")
+    .select(publicColumnsWithProject)
+    .eq("status", "approved")
+    .eq("projects.slug", projectSlug)
+    .order("decided_at", { ascending: false })
+    .limit(limit);
+
+  if (error) throw new Error(`Unable to load project showcase: ${error.message}`);
+
+  return ((data ?? []) as unknown as ShowcaseRow[]).map((row) =>
+    toEntry(row, publicImageUrl(supabase, row.public_cover_image_path)),
+  );
 }
 
 export async function getStaffShowcaseSubmissions(): Promise<ShowcaseEntry[]> {
