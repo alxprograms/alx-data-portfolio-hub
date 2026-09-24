@@ -54,7 +54,10 @@ export default async function Home() {
             <div><p>Learner showcase</p><h2>See where a brief can lead.</h2></div>
             <div>
               <p>Completed work from learners who turned a project idea into evidence of what they can do.</p>
-              <Link href="/showcase">Browse the showcase <ArrowUpRightIcon /></Link>
+              <div className="home-showcase__actions">
+                <Link href="/showcase">Browse the showcase <ArrowUpRightIcon /></Link>
+                <Link href="/showcase/submit">Submit your work <ArrowUpRightIcon /></Link>
+              </div>
             </div>
           </div>
           {featuredShowcase ? (

@@ -2626,6 +2626,24 @@ svg {
   text-decoration: none;
 }
 
+.home-showcase__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.home-showcase__actions a:last-child {
+  border: 1px solid rgba(252, 251, 247, 0.38);
+  color: var(--surface);
+  min-height: 42px;
+  padding: 0 14px;
+}
+
+.home-showcase__actions a:hover {
+  color: var(--lime);
+}
+
 .home-showcase__feature {
   background: var(--surface);
   color: var(--ink);
