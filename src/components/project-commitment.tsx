@@ -2,7 +2,9 @@
 
 import type { FormEvent } from "react";
 import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { createCommitmentAction } from "@/app/actions/commitments";
+import { saveMyProjectSlugs } from "@/lib/my-projects";
 
 type CommitmentState = "closed" | "open" | "submitted";
 
@@ -10,6 +12,7 @@ export function ProjectCommitment({ projectSlug, projectTitle }: { projectSlug: 
   const [state, setState] = useState<CommitmentState>("closed");
   const [error, setError] = useState("");
   const [pending, startTransition] = useTransition();
+  const router = useRouter();
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -22,8 +25,13 @@ export function ProjectCommitment({ projectSlug, projectTitle }: { projectSlug: 
         email: String(form.get("email") ?? ""),
         consented: form.get("consent") === "on",
       });
-      if (result.ok) setState("submitted");
-      else setError(result.message);
+      if (result.ok) {
+        saveMyProjectSlugs(result.projectSlugs.length > 0 ? result.projectSlugs : [projectSlug]);
+        setState("submitted");
+        router.push("/my-projects");
+      } else {
+        setError(result.message);
+      }
     });
   }
 

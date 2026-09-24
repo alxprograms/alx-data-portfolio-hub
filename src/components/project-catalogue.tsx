@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { Project } from "@/types/project";
-import { ArrowUpRightIcon, ClockIcon, SearchIcon } from "@/components/icons";
+import type { ProjectSummary } from "@/types/project";
+import { ArrowUpRightIcon, SearchIcon } from "@/components/icons";
+import { ProjectList } from "@/components/project-list";
 
 type ProjectCatalogueProps = {
-  projects: Project[];
+  projects: ProjectSummary[];
   initialLimit?: number;
   browseAllHref?: string;
 };
@@ -93,48 +94,7 @@ export function ProjectCatalogue({ projects, initialLimit, browseAllHref }: Proj
       </div>
 
       {filteredProjects.length > 0 ? (
-        <ol className="project-list">
-          {visibleProjects.map((project, index) => (
-            <li key={project.slug}>
-              <Link className="project-row" href={`/projects/${project.slug}`}>
-                <span className="project-row__number" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <span className="project-row__body">
-                  <span className="project-row__eyebrow">
-                    <span>{project.course}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{project.courseName}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{project.domain}</span>
-                  </span>
-                  <strong>{project.title}</strong>
-                  <span className="project-row__summary">{project.summary}</span>
-                  <span className="project-row__tags">
-                    {project.skills.slice(0, 4).map((skill) => (
-                      <span key={skill}>{skill}</span>
-                    ))}
-                  </span>
-                </span>
-
-                <span className="project-row__aside">
-                  <span className={`difficulty difficulty--${project.difficulty.toLowerCase()}`}>
-                    {project.difficulty}
-                  </span>
-                  <span className="project-row__time">
-                    <ClockIcon />
-                    {project.estimatedTime}
-                  </span>
-                  <span className="project-row__open">
-                    Open brief
-                    <ArrowUpRightIcon />
-                  </span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ol>
+        <ProjectList projects={visibleProjects} />
       ) : (
         <div className="empty-state">
           <strong>No projects match those filters.</strong>

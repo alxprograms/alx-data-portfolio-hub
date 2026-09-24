@@ -73,6 +73,15 @@ Implement only the following product capabilities unless the user explicitly exp
 - Do not require a learner account for this action in the first version. Keep identity handling isolated so it can later be replaced by ALX identity without rewriting project pages.
 - Authorised staff can view a simple private commitment list containing learner name, email, selected project, and commitment date. Do not add approval, progress tracking, or case-management stages.
 
+### My Projects
+
+- After a learner submits “I’m building this,” take them to a simple My Projects page.
+- Store the returned published project slugs in browser storage so the learner can return to them on the same device without an account.
+- During a successful commitment, reconcile the browser list with other published projects previously selected using the same normalized email address.
+- Return only public project identifiers from that reconciliation. Learner names, emails, timestamps, and other commitment details remain staff-only.
+- Keep the browser-storage implementation out of learner-facing copy. Do not imply account-based or cross-device syncing.
+- This is a convenience list, not progress tracking, a learner profile, or an LMS dashboard.
+
 ### Portfolio Showcase
 
 - A learner can submit a completed project for the showcase.
@@ -98,7 +107,7 @@ Do not add these without a direct user request:
 - An “I need support” workflow
 - Support tickets or case management
 - A staff idea-to-draft-to-review-to-approval publishing pipeline
-- Saved-project libraries, reminders, or notifications
+- Account-based saved-project libraries, reminders, or notifications
 - Complex social networking
 - A generic website/page builder
 - Separate microservices for the first version

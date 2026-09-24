@@ -13,6 +13,7 @@ export function SiteHeader() {
           <Link href="/projects">Projects</Link>
           <span className="site-nav__divider" aria-hidden="true" />
           <Link href="/showcase">Showcase</Link>
+          <Link href="/my-projects">My projects</Link>
         </nav>
       </div>
     </header>

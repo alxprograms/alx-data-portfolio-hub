@@ -462,6 +462,61 @@ svg {
   padding-top: 72px;
 }
 
+.my-projects-section {
+  min-height: 470px;
+}
+
+.my-projects-loading {
+  color: var(--muted);
+  margin: 0;
+  padding: 48px 2px;
+}
+
+.my-projects-empty {
+  border-bottom: 1px solid var(--line);
+  max-width: 760px;
+  padding: 68px 2px 76px;
+}
+
+.my-projects-empty > p {
+  color: var(--blue);
+  font-size: 0.7rem;
+  font-weight: 720;
+  letter-spacing: 0.09em;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.my-projects-empty h2 {
+  color: var(--navy);
+  font-size: clamp(2rem, 5vw, 3.7rem);
+  letter-spacing: -0.055em;
+  line-height: 1;
+  margin: 0;
+}
+
+.my-projects-empty > span {
+  color: var(--muted);
+  display: block;
+  line-height: 1.6;
+  margin-top: 18px;
+  max-width: 540px;
+}
+
+.my-projects-empty a {
+  align-items: center;
+  background: var(--navy);
+  color: var(--surface);
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 690;
+  gap: 28px;
+  margin-top: 28px;
+  min-height: 48px;
+  padding: 0 18px;
+  text-decoration: none;
+}
+
 .project-list {
   border-top: 1px solid var(--line-strong);
   list-style: none;
@@ -1133,11 +1188,20 @@ svg {
     height: 66px;
   }
 
+  .site-nav {
+    gap: 12px;
+  }
+
+  .site-nav a {
+    font-size: 0.74rem;
+  }
+
   .brand__name,
   .site-nav__divider,
   .site-nav__note {
     display: none;
   }
+
 
   .hero__inner {
     min-height: auto;

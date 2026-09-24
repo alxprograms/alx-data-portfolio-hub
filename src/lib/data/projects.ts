@@ -1,5 +1,5 @@
 import { requireStaff } from "@/lib/auth/staff";
-import type { Project, StaffProject } from "@/types/project";
+import type { Project, ProjectSummary, StaffProject } from "@/types/project";
 import { createClient } from "@/lib/supabase/server";
 
 type ProjectRow = {
@@ -38,7 +38,20 @@ const publicProjectColumns = [
   "updated_at",
 ].join(",");
 
-function toProject(row: ProjectRow): Project {
+const publicProjectSummaryColumns = [
+  "slug",
+  "title",
+  "course",
+  "course_name",
+  "domain",
+  "difficulty",
+  "estimated_time",
+  "skills",
+  "tools",
+  "summary",
+].join(",");
+
+function toProjectSummary(row: ProjectRow): ProjectSummary {
   return {
     slug: row.slug,
     title: row.title,
@@ -50,16 +63,22 @@ function toProject(row: ProjectRow): Project {
     skills: row.skills,
     tools: row.tools,
     summary: row.summary,
+  };
+}
+
+function toProject(row: ProjectRow): Project {
+  return {
+    ...toProjectSummary(row),
     datasetUrl: row.dataset_url ?? "",
     contentMarkdown: row.content_markdown,
   };
 }
 
-export async function getPublishedProjects(): Promise<Project[]> {
+export async function getPublishedProjects(): Promise<ProjectSummary[]> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("projects")
-    .select(publicProjectColumns)
+    .select(publicProjectSummaryColumns)
     .eq("status", "published")
     .order("sort_order", { ascending: true })
     .order("created_at", { ascending: false });
@@ -68,7 +87,7 @@ export async function getPublishedProjects(): Promise<Project[]> {
     throw new Error(`Unable to load published projects: ${error.message}`);
   }
 
-  return ((data ?? []) as unknown as ProjectRow[]).map(toProject);
+  return ((data ?? []) as unknown as ProjectRow[]).map(toProjectSummary);
 }
 
 export async function getPublishedProjectBySlug(slug: string): Promise<Project | undefined> {

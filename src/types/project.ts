@@ -1,6 +1,6 @@
 export type ProjectStatus = "draft" | "published";
 
-export type Project = {
+export type ProjectSummary = {
   slug: string;
   title: string;
   course: string;
@@ -11,6 +11,9 @@ export type Project = {
   skills: string[];
   tools: string[];
   summary: string;
+};
+
+export type Project = ProjectSummary & {
   datasetUrl: string;
   contentMarkdown: string;
 };
