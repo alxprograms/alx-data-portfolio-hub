@@ -1199,28 +1199,6 @@ svg {
   text-decoration-color: currentColor;
 }
 
-.project-content p:has(> .project-content__guide-link) {
-  margin-top: 24px;
-}
-
-.project-content .project-content__guide-link {
-  align-items: center;
-  background: var(--navy);
-  color: var(--surface);
-  display: inline-flex;
-  font-size: 0.76rem;
-  font-weight: 690;
-  min-height: 44px;
-  padding: 0 15px;
-  text-decoration: none;
-  transition: background 160ms ease, transform 160ms ease;
-}
-
-.project-content .project-content__guide-link:hover {
-  background: var(--blue-dark);
-  transform: translateY(-2px);
-}
-
 .table-scroll {
   margin: 28px 0 34px;
   overflow-x: auto;
