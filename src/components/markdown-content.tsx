@@ -14,7 +14,14 @@ export function MarkdownContent({ children }: MarkdownContentProps) {
         components={{
           a: ({ children: linkChildren, href }) => {
             if (href?.startsWith("/") || href?.startsWith("#")) {
-              return <Link href={href}>{linkChildren}</Link>;
+              return (
+                <Link
+                  className={href.startsWith("/guides/") ? "project-content__guide-link" : undefined}
+                  href={href}
+                >
+                  {linkChildren}
+                </Link>
+              );
             }
 
             return (

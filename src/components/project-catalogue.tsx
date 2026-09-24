@@ -13,13 +13,16 @@ type ProjectCatalogueProps = {
 };
 
 const allCourses = "All courses";
+const allIndustries = "All industries";
 const allLevels = "All levels";
 
 export function ProjectCatalogue({ projects, initialLimit, browseAllHref }: ProjectCatalogueProps) {
   const [query, setQuery] = useState("");
   const [course, setCourse] = useState(allCourses);
+  const [industry, setIndustry] = useState(allIndustries);
   const [difficulty, setDifficulty] = useState(allLevels);
   const courses = useMemo(() => [allCourses, ...Array.from(new Set(projects.map((project) => project.course)))], [projects]);
+  const industries = useMemo(() => [allIndustries, ...Array.from(new Set(projects.map((project) => project.domain))).sort()], [projects]);
   const difficulties = useMemo(() => [allLevels, ...Array.from(new Set(projects.map((project) => project.difficulty)))], [projects]);
 
   const filteredProjects = useMemo(() => {
@@ -40,12 +43,13 @@ export function ProjectCatalogue({ projects, initialLimit, browseAllHref }: Proj
       return (
         (!normalizedQuery || searchable.includes(normalizedQuery)) &&
         (course === allCourses || project.course === course) &&
+        (industry === allIndustries || project.domain === industry) &&
         (difficulty === allLevels || project.difficulty === difficulty)
       );
     });
-  }, [course, difficulty, projects, query]);
+  }, [course, difficulty, industry, projects, query]);
 
-  const hasActiveFilters = Boolean(query.trim()) || course !== allCourses || difficulty !== allLevels;
+  const hasActiveFilters = Boolean(query.trim()) || course !== allCourses || industry !== allIndustries || difficulty !== allLevels;
   const visibleProjects = initialLimit && !hasActiveFilters
     ? filteredProjects.slice(0, initialLimit)
     : filteredProjects;
@@ -77,6 +81,15 @@ export function ProjectCatalogue({ projects, initialLimit, browseAllHref }: Proj
         </label>
 
         <label className="select-field">
+          <span>Industry</span>
+          <select onChange={(event) => setIndustry(event.target.value)} value={industry}>
+            {industries.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
+          </select>
+        </label>
+
+        <label className="select-field">
           <span>Difficulty</span>
           <select onChange={(event) => setDifficulty(event.target.value)} value={difficulty}>
             {difficulties.map((option) => (
@@ -102,8 +115,9 @@ export function ProjectCatalogue({ projects, initialLimit, browseAllHref }: Proj
           <button
             onClick={() => {
               setQuery("");
-                setCourse(allCourses);
-                setDifficulty(allLevels);
+              setCourse(allCourses);
+              setIndustry(allIndustries);
+              setDifficulty(allLevels);
             }}
             type="button"
           >
