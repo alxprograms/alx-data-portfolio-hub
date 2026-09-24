@@ -1150,6 +1150,73 @@ svg {
   font-size: 1rem;
 }
 
+.project-navigation {
+  border-top: 1px solid var(--line-strong);
+  margin-top: 30px;
+  padding-top: 18px;
+}
+
+.project-navigation__title {
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 740;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.project-navigation__list {
+  list-style: none;
+  margin: 0;
+  max-height: min(42vh, 390px);
+  overflow-y: auto;
+  padding: 0 10px 0 0;
+  scrollbar-color: var(--line-strong) transparent;
+  scrollbar-width: thin;
+}
+
+.project-navigation__list li {
+  border: 0;
+  padding: 0;
+}
+
+.project-aside .project-navigation__list a {
+  align-items: baseline;
+  color: var(--muted);
+  display: grid;
+  font-size: 0.73rem;
+  font-weight: 520;
+  gap: 8px;
+  grid-template-columns: 22px minmax(0, 1fr);
+  line-height: 1.3;
+  padding: 6px 0;
+  transition: color 160ms ease;
+}
+
+.project-navigation__list a > span {
+  color: var(--line-strong);
+  font-size: 0.58rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.project-aside .project-navigation__list a:hover,
+.project-aside .project-navigation__list a[aria-current="location"] {
+  color: var(--blue-dark);
+}
+
+.project-navigation__list a[aria-current="location"] {
+  font-weight: 700;
+}
+
+.project-navigation__list a[aria-current="location"] > span {
+  color: var(--blue);
+}
+
+.project-navigation__mobile {
+  display: none;
+}
+
 .project-content {
   font-size: 1rem;
   line-height: 1.76;
@@ -1730,6 +1797,44 @@ svg {
     padding: 6px 9px;
   }
 
+  .project-navigation {
+    margin-top: 32px;
+  }
+
+  .project-navigation__list {
+    display: none;
+  }
+
+  .project-navigation__mobile {
+    display: block;
+  }
+
+  .project-navigation__select {
+    position: relative;
+  }
+
+  .project-navigation__select select {
+    appearance: none;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    color: var(--navy);
+    cursor: pointer;
+    font-size: 0.86rem;
+    font-weight: 650;
+    min-height: 48px;
+    padding: 0 44px 0 13px;
+    width: 100%;
+  }
+
+  .project-navigation__select > span {
+    color: var(--blue);
+    pointer-events: none;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   .project-content h2 {
     margin-top: 58px;
   }
@@ -1813,6 +1918,7 @@ svg {
   .breadcrumb,
   .project-commitment,
   .project-aside__save,
+  .project-navigation,
   .project-showcase {
     display: none !important;
   }

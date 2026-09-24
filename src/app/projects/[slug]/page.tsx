@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRightIcon, ClockIcon } from "@/components/icons";
 import { MarkdownContent } from "@/components/markdown-content";
+import { ProjectBriefNavigation } from "@/components/project-brief-navigation";
 import { ProjectCommitment } from "@/components/project-commitment";
 import { SaveProjectPdf } from "@/components/save-project-pdf";
 import { ShowcaseVisual } from "@/components/showcase-visual";
@@ -10,6 +11,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getPublishedProjectBySlug } from "@/lib/data/projects";
 import { getApprovedShowcasesForProject } from "@/lib/data/showcase";
+import { extractMarkdownSections } from "@/lib/markdown-sections";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -39,6 +41,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) {
     notFound();
   }
+
+  const sections = extractMarkdownSections(project.contentMarkdown);
 
   return (
     <>
@@ -96,10 +100,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </a>
             )}
             <SaveProjectPdf />
+            <ProjectBriefNavigation sections={sections} />
           </aside>
 
           <article>
-            <MarkdownContent>{project.contentMarkdown}</MarkdownContent>
+            <MarkdownContent headingIds={sections.map(({ id }) => id)}>
+              {project.contentMarkdown}
+            </MarkdownContent>
           </article>
         </div>
 
