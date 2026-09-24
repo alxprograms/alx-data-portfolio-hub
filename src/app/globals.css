@@ -85,7 +85,9 @@ svg {
 .hero__inner,
 .projects-section,
 .project-hero__inner,
-.project-layout {
+.project-layout,
+.guide-hero__inner,
+.guide-layout {
   margin-inline: auto;
   max-width: var(--page-width);
   padding-inline: 32px;
@@ -1241,6 +1243,216 @@ svg {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
+.guide-hero {
+  background: var(--navy);
+  color: var(--surface);
+}
+
+.guide-hero__inner {
+  padding-block: 54px 82px;
+}
+
+.guide-hero__inner .breadcrumb {
+  margin-bottom: 72px;
+}
+
+.guide-hero__inner > p {
+  color: var(--lime);
+  font-size: 0.72rem;
+  font-weight: 720;
+  letter-spacing: 0.11em;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.guide-hero h1 {
+  font-size: clamp(3rem, 6.5vw, 5.8rem);
+  font-weight: 710;
+  letter-spacing: -0.067em;
+  line-height: 0.94;
+  margin: 0;
+  max-width: 900px;
+}
+
+.guide-hero__inner > span {
+  color: #d1d7e7;
+  display: block;
+  font-size: 1.04rem;
+  line-height: 1.65;
+  margin-top: 26px;
+  max-width: 620px;
+}
+
+.guide-layout {
+  align-items: start;
+  display: grid;
+  gap: clamp(48px, 8vw, 110px);
+  grid-template-columns: 225px minmax(0, 760px);
+  justify-content: center;
+  padding-block: 84px 124px;
+}
+
+.guide-aside {
+  border-top: 3px solid var(--blue);
+  position: sticky;
+  top: 28px;
+}
+
+.guide-aside > p {
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 740;
+  letter-spacing: 0.08em;
+  margin: 17px 0 10px;
+  text-transform: uppercase;
+}
+
+.guide-aside nav {
+  display: grid;
+}
+
+.guide-aside a {
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  display: grid;
+  font-size: 0.78rem;
+  gap: 10px;
+  grid-template-columns: 23px 1fr;
+  line-height: 1.35;
+  padding: 10px 0;
+  text-decoration: none;
+}
+
+.guide-aside a span {
+  color: var(--blue);
+  font-size: 0.64rem;
+  font-weight: 710;
+}
+
+.guide-aside a:hover {
+  color: var(--navy);
+}
+
+.guide-content {
+  font-size: 1rem;
+  line-height: 1.76;
+  min-width: 0;
+}
+
+.guide-content section {
+  scroll-margin-top: 28px;
+}
+
+.guide-content section + section {
+  border-top: 1px solid var(--line-strong);
+  margin-top: 72px;
+  padding-top: 22px;
+}
+
+.guide-content p.guide-content__step {
+  color: var(--blue);
+  font-size: 0.69rem;
+  font-weight: 730;
+  letter-spacing: 0.09em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.guide-content h2 {
+  color: var(--navy);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.guide-content p,
+.guide-content li {
+  color: #333b4b;
+}
+
+.guide-content p {
+  margin: 0 0 19px;
+}
+
+.guide-content ul {
+  margin: 0 0 24px;
+  padding-left: 1.35rem;
+}
+
+.guide-content li {
+  margin-bottom: 9px;
+  padding-left: 4px;
+}
+
+.guide-content li::marker {
+  color: var(--blue);
+}
+
+.guide-content a:not(.guide-next) {
+  color: var(--blue-dark);
+  font-weight: 610;
+  text-decoration-color: rgba(11, 61, 187, 0.4);
+  text-underline-offset: 3px;
+}
+
+.guide-content pre {
+  background: var(--navy-deep);
+  color: #e7ebf6;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  margin: 28px 0;
+  overflow-x: auto;
+  padding: 22px;
+}
+
+.guide-content code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.guide-next {
+  align-items: center;
+  background: var(--navy);
+  color: var(--surface);
+  display: grid;
+  gap: 8px 24px;
+  grid-template-columns: 1fr auto;
+  margin-top: 86px;
+  min-height: 132px;
+  padding: 24px 28px;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.guide-next span {
+  color: var(--lime);
+  font-size: 0.68rem;
+  font-weight: 720;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.guide-next strong {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 690;
+  grid-column: 1;
+  letter-spacing: -0.035em;
+}
+
+.guide-next svg {
+  color: var(--lime);
+  font-size: 1.45rem;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.guide-next:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
 .site-footer {
   background: var(--navy-deep);
   color: #bbc4dc;
@@ -1300,7 +1512,8 @@ svg {
     max-width: 520px;
   }
 
-  .project-layout {
+  .project-layout,
+  .guide-layout {
     gap: 48px;
     grid-template-columns: 180px minmax(0, 1fr);
   }
@@ -1326,7 +1539,9 @@ svg {
   .projects-section,
   .project-hero__inner,
   .project-layout,
-  .project-showcase {
+  .project-showcase,
+  .guide-hero__inner,
+  .guide-layout {
     padding-inline: 20px;
   }
 
@@ -1491,6 +1706,45 @@ svg {
 
   .project-content h2 {
     margin-top: 58px;
+  }
+
+  .guide-hero__inner {
+    padding-block: 36px 64px;
+  }
+
+  .guide-hero__inner .breadcrumb {
+    margin-bottom: 52px;
+  }
+
+  .guide-hero h1 {
+    font-size: clamp(2.8rem, 14vw, 4.2rem);
+  }
+
+  .guide-layout {
+    display: block;
+    padding-block: 54px 88px;
+  }
+
+  .guide-aside {
+    margin-bottom: 62px;
+    position: static;
+  }
+
+  .guide-aside nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guide-aside a:nth-child(odd) {
+    margin-right: 18px;
+  }
+
+  .guide-content section + section {
+    margin-top: 58px;
+  }
+
+  .guide-next {
+    margin-top: 68px;
+    padding-inline: 22px;
   }
 
   .site-footer__inner {

@@ -94,15 +94,6 @@ turndown.addRule("keyValueTable", {
   },
 });
 
-turndown.addRule("legacyCodeBlock", {
-  filter(node) {
-    return node.nodeName === "DIV" && node.classList.contains("code-block");
-  },
-  replacement(_content, node) {
-    return `\n\n~~~text\n${node.textContent.trim()}\n~~~\n\n`;
-  },
-});
-
 turndown.addRule("removeLegacyGuideButtons", {
   filter(node) {
     return node.nodeName === "A" && node.classList.contains("btn");
@@ -112,11 +103,21 @@ turndown.addRule("removeLegacyGuideButtons", {
   },
 });
 
-turndown.addRule("removeRelativeLinks", {
+turndown.addRule("rewriteLegacyRelativeLinks", {
   filter(node) {
     return node.nodeName === "A" && (node.getAttribute("href") ?? "").startsWith("..");
   },
-  replacement(content) {
+  replacement(content, node) {
+    const href = node.getAttribute("href") ?? "";
+
+    if (href.endsWith("github-guide.html")) {
+      return `[${content}](/guides/github)`;
+    }
+
+    if (href.endsWith("linkedin-guide.html")) {
+      return `[${content}](/guides/linkedin)`;
+    }
+
     return content;
   },
 });
@@ -139,7 +140,12 @@ function extractProjectMarkdown(html, filePath) {
     throw new Error(`Could not isolate the project content in ${filePath}`);
   }
 
-  const projectHtml = html.slice(bodyStart + bodyMarker.length, navigationStart);
+  const projectHtml = html
+    .slice(bodyStart + bodyMarker.length, navigationStart)
+    .replace(
+      /<div class="code-block">([\s\S]*?)<\/div>/g,
+      (_match, sourceText) => `<pre><code>${sourceText.trim()}</code></pre>`,
+    );
 
   return turndown
     .turndown(projectHtml)

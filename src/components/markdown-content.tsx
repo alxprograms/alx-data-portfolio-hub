@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -11,11 +12,17 @@ export function MarkdownContent({ children }: MarkdownContentProps) {
       <Markdown
         remarkPlugins={[remarkGfm]}
         components={{
-          a: ({ children: linkChildren, href }) => (
-            <a href={href} rel="noreferrer" target="_blank">
-              {linkChildren}
-            </a>
-          ),
+          a: ({ children: linkChildren, href }) => {
+            if (href?.startsWith("/") || href?.startsWith("#")) {
+              return <Link href={href}>{linkChildren}</Link>;
+            }
+
+            return (
+              <a href={href} rel="noreferrer" target="_blank">
+                {linkChildren}
+              </a>
+            );
+          },
           table: ({ children: tableChildren }) => (
             <div className="table-scroll">
               <table>{tableChildren}</table>

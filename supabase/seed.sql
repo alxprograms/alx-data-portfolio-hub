@@ -144,13 +144,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-healthcare-facility-performance-tracker/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sheets/ │ └── healthcare-facility-performance-tracker.xlsx ← exported copy of your Google Sheet ├── images/ │ └── chart_screenshots.png └── README.md
+~~~
+healthcare-facility-performance-tracker/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sheets/
+│   └── healthcare-facility-performance-tracker.xlsx   ← exported copy of your Google Sheet
+├── images/
+│   └── chart_screenshots.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots of your key charts.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -162,7 +169,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #GoogleSheets #ALXAfrica #HealthcareAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   0,
   now()
@@ -289,13 +296,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-crop-yield-food-security-analysis/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sheets/ │ └── crop-yield-food-security-analysis.xlsx ← exported copy of your Google Sheet ├── images/ │ └── chart_screenshots.png └── README.md
+~~~
+crop-yield-food-security-analysis/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sheets/
+│   └── crop-yield-food-security-analysis.xlsx   ← exported copy of your Google Sheet
+├── images/
+│   └── chart_screenshots.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots of your key charts.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -307,7 +321,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #GoogleSheets #ALXAfrica #FoodSecurity #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   1,
   now()
@@ -434,13 +448,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-mobile-money-adoption-trends/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sheets/ │ └── mobile-money-adoption-trends.xlsx ← exported copy of your Google Sheet ├── images/ │ └── chart_screenshots.png └── README.md
+~~~
+mobile-money-adoption-trends/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sheets/
+│   └── mobile-money-adoption-trends.xlsx   ← exported copy of your Google Sheet
+├── images/
+│   └── chart_screenshots.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots of your key charts.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -452,7 +473,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #GoogleSheets #ALXAfrica #FinancialInclusion #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   2,
   now()
@@ -579,13 +600,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-school-enrollment-gender-gap-analysis/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sheets/ │ └── school-enrollment-gender-gap-analysis.xlsx ← exported copy of your Google Sheet ├── images/ │ └── chart_screenshots.png └── README.md
+~~~
+school-enrollment-gender-gap-analysis/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sheets/
+│   └── school-enrollment-gender-gap-analysis.xlsx   ← exported copy of your Google Sheet
+├── images/
+│   └── chart_screenshots.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots of your key charts.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -597,7 +625,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #GoogleSheets #ALXAfrica #EducationEquity #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   3,
   now()
@@ -724,13 +752,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-air-quality-health-impact-report/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sheets/ │ └── air-quality-health-impact-report.xlsx ← exported copy of your Google Sheet ├── images/ │ └── chart_screenshots.png └── README.md
+~~~
+air-quality-health-impact-report/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sheets/
+│   └── air-quality-health-impact-report.xlsx   ← exported copy of your Google Sheet
+├── images/
+│   └── chart_screenshots.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots of your key charts.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -742,7 +777,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #GoogleSheets #ALXAfrica #PublicHealth #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   4,
   now()
@@ -869,13 +904,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-ecommerce-returns-customer-behaviour/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sheets/ │ └── ecommerce-returns-customer-behaviour.xlsx ← exported copy of your Google Sheet ├── images/ │ └── chart_screenshots.png └── README.md
+~~~
+ecommerce-returns-customer-behaviour/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sheets/
+│   └── ecommerce-returns-customer-behaviour.xlsx   ← exported copy of your Google Sheet
+├── images/
+│   └── chart_screenshots.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots of your key charts.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -887,7 +929,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #GoogleSheets #ALXAfrica #Ecommerce #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   5,
   now()
@@ -1014,13 +1056,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-electricity-access-energy-poverty/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sheets/ │ └── electricity-access-energy-poverty.xlsx ← exported copy of your Google Sheet ├── images/ │ └── chart_screenshots.png └── README.md
+~~~
+electricity-access-energy-poverty/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sheets/
+│   └── electricity-access-energy-poverty.xlsx   ← exported copy of your Google Sheet
+├── images/
+│   └── chart_screenshots.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots of your key charts.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -1032,7 +1081,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #GoogleSheets #ALXAfrica #EnergyAccess #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   6,
   now()
@@ -1159,13 +1208,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-hr-workforce-diversity-attrition-audit/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sheets/ │ └── hr-workforce-diversity-attrition-audit.xlsx ← exported copy of your Google Sheet ├── images/ │ └── chart_screenshots.png └── README.md
+~~~
+hr-workforce-diversity-attrition-audit/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sheets/
+│   └── hr-workforce-diversity-attrition-audit.xlsx   ← exported copy of your Google Sheet
+├── images/
+│   └── chart_screenshots.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots of your key charts.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -1177,7 +1233,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #GoogleSheets #ALXAfrica #PeopleAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   7,
   now()
@@ -1308,13 +1364,21 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-hospital-database-patient-treatment-analytics/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── images/ │ └── query_results.png └── README.md
+~~~
+hospital-database-patient-treatment-analytics/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── images/
+│   └── query_results.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots or output samples of your key queries.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -1326,7 +1390,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #MySQL #ALXAfrica #HealthcareAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   8,
   now()
@@ -1456,13 +1520,21 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-ecommerce-orders-revenue-intelligence/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── images/ │ └── query_results.png └── README.md
+~~~
+ecommerce-orders-revenue-intelligence/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── images/
+│   └── query_results.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots or output samples of your key queries.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -1474,7 +1546,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #MySQL #ALXAfrica #Ecommerce #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   9,
   now()
@@ -1604,13 +1676,21 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-banking-transactions-fraud-pattern-detection/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── images/ │ └── query_results.png └── README.md
+~~~
+banking-transactions-fraud-pattern-detection/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── images/
+│   └── query_results.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots or output samples of your key queries.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -1622,7 +1702,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #MySQL #ALXAfrica #FraudDetection #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   10,
   now()
@@ -1753,13 +1833,21 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-african-football-league-statistics/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── images/ │ └── query_results.png └── README.md
+~~~
+african-football-league-statistics/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── images/
+│   └── query_results.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots or output samples of your key queries.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -1771,7 +1859,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #MySQL #ALXAfrica #SportsAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   11,
   now()
@@ -1901,13 +1989,21 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-telecom-subscriber-churn-analysis/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── images/ │ └── query_results.png └── README.md
+~~~
+telecom-subscriber-churn-analysis/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── images/
+│   └── query_results.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots or output samples of your key queries.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -1919,7 +2015,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #MySQL #ALXAfrica #ChurnAnalysis #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   12,
   now()
@@ -2049,13 +2145,21 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-ride-sharing-operations-driver-trip-analysis/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── images/ │ └── query_results.png └── README.md
+~~~
+ride-sharing-operations-driver-trip-analysis/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── images/
+│   └── query_results.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots or output samples of your key queries.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -2067,7 +2171,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #MySQL #ALXAfrica #MobilityAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   13,
   now()
@@ -2197,13 +2301,21 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-real-estate-listings-market-intelligence/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── images/ │ └── query_results.png └── README.md
+~~~
+real-estate-listings-market-intelligence/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── images/
+│   └── query_results.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots or output samples of your key queries.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -2215,7 +2327,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #MySQL #ALXAfrica #RealEstate #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   14,
   now()
@@ -2345,13 +2457,21 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-insurance-claims-risk-profiling/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── images/ │ └── query_results.png └── README.md
+~~~
+insurance-claims-risk-profiling/
+├── data/
+│   └── raw/           ← link to source, not the file itself
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── images/
+│   └── query_results.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and screenshots or output samples of your key queries.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -2363,7 +2483,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #MySQL #ALXAfrica #InsuranceAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   15,
   now()
@@ -2489,13 +2609,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-hospital-executive-performance-dashboard/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── powerbi/ │ └── hospital-executive-performance-dashboard.pbix ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+hospital-executive-performance-dashboard/
+├── data/
+│   └── raw/              ← link to source, not the file itself
+├── powerbi/
+│   └── hospital-executive-performance-dashboard.pbix
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of each dashboard page.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -2507,7 +2634,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #DAX #ALXAfrica #HealthcareAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   16,
   now()
@@ -2633,13 +2760,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-africa-energy-access-dashboard/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── powerbi/ │ └── africa-energy-access-dashboard.pbix ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+africa-energy-access-dashboard/
+├── data/
+│   └── raw/              ← link to source, not the file itself
+├── powerbi/
+│   └── africa-energy-access-dashboard.pbix
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of each dashboard page.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -2651,7 +2785,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #DAX #ALXAfrica #EnergyAccess #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   17,
   now()
@@ -2777,13 +2911,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-sales-performance-territory-dashboard/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── powerbi/ │ └── sales-performance-territory-dashboard.pbix ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+sales-performance-territory-dashboard/
+├── data/
+│   └── raw/              ← link to source, not the file itself
+├── powerbi/
+│   └── sales-performance-territory-dashboard.pbix
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of each dashboard page.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -2795,7 +2936,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #DAX #ALXAfrica #SalesAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   18,
   now()
@@ -2921,13 +3062,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-hr-workforce-attrition-analytics/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── powerbi/ │ └── hr-workforce-attrition-analytics.pbix ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+hr-workforce-attrition-analytics/
+├── data/
+│   └── raw/              ← link to source, not the file itself
+├── powerbi/
+│   └── hr-workforce-attrition-analytics.pbix
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of each dashboard page.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -2939,7 +3087,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #DAX #ALXAfrica #PeopleAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   19,
   now()
@@ -3065,13 +3213,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-climate-carbon-emissions-tracker/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── powerbi/ │ └── climate-carbon-emissions-tracker.pbix ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+climate-carbon-emissions-tracker/
+├── data/
+│   └── raw/              ← link to source, not the file itself
+├── powerbi/
+│   └── climate-carbon-emissions-tracker.pbix
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of each dashboard page.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -3083,7 +3238,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #DAX #ALXAfrica #ClimateData #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   20,
   now()
@@ -3209,13 +3364,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-telecommunications-kpi-dashboard/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── powerbi/ │ └── telecommunications-kpi-dashboard.pbix ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+telecommunications-kpi-dashboard/
+├── data/
+│   └── raw/              ← link to source, not the file itself
+├── powerbi/
+│   └── telecommunications-kpi-dashboard.pbix
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of each dashboard page.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -3227,7 +3389,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #DAX #ALXAfrica #TelecomAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   21,
   now()
@@ -3353,13 +3515,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-agricultural-commodity-price-monitor/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── powerbi/ │ └── agricultural-commodity-price-monitor.pbix ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+agricultural-commodity-price-monitor/
+├── data/
+│   └── raw/              ← link to source, not the file itself
+├── powerbi/
+│   └── agricultural-commodity-price-monitor.pbix
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of each dashboard page.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -3371,7 +3540,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #DAX #ALXAfrica #AgriculturalAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   22,
   now()
@@ -3497,13 +3666,20 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-education-outcomes-learning-poverty-report/ ├── data/ │ └── raw/ ← link to source, not the file itself ├── powerbi/ │ └── education-outcomes-learning-poverty-report.pbix ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+education-outcomes-learning-poverty-report/
+├── data/
+│   └── raw/              ← link to source, not the file itself
+├── powerbi/
+│   └── education-outcomes-learning-poverty-report.pbix
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of each dashboard page.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -3515,7 +3691,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #DAX #ALXAfrica #EducationPolicy #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   23,
   now()
@@ -3664,13 +3840,26 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-healthcare-analytics-capstone/ ├── data/ │ ├── raw/ ← original downloaded file │ └── cleaned/ ← your cleaned CSV ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── powerbi/ │ └── healthcare_dashboard.pbix ├── reports/ │ └── executive_summary.pdf ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+healthcare-analytics-capstone/
+├── data/
+│   ├── raw/           ← original downloaded file
+│   └── cleaned/       ← your cleaned CSV
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── powerbi/
+│   └── healthcare_dashboard.pbix
+├── reports/
+│   └── executive_summary.pdf
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of the dashboard.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -3682,7 +3871,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #PowerBI #SQL #ALXAfrica #HealthcareAnalytics #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   24,
   now()
@@ -3830,13 +4019,26 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-retail-analytics-capstone/ ├── data/ │ ├── raw/ ← link to source, not the file itself │ └── cleaned/ ← your cleaned CSV ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── powerbi/ │ └── retail-analytics-capstone.pbix ├── reports/ │ └── executive_summary.pdf ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+retail-analytics-capstone/
+├── data/
+│   ├── raw/           ← link to source, not the file itself
+│   └── cleaned/       ← your cleaned CSV
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── powerbi/
+│   └── retail-analytics-capstone.pbix
+├── reports/
+│   └── executive_summary.pdf
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of the dashboard.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -3848,7 +4050,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #PowerBI #ALXAfrica #Ecommerce #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   25,
   now()
@@ -3996,13 +4198,26 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-financial-inclusion-capstone/ ├── data/ │ ├── raw/ ← link to source, not the file itself │ └── cleaned/ ← your cleaned CSV ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── powerbi/ │ └── financial-inclusion-capstone.pbix ├── reports/ │ └── executive_summary.pdf ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+financial-inclusion-capstone/
+├── data/
+│   ├── raw/           ← link to source, not the file itself
+│   └── cleaned/       ← your cleaned CSV
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── powerbi/
+│   └── financial-inclusion-capstone.pbix
+├── reports/
+│   └── executive_summary.pdf
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of the dashboard.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -4014,7 +4229,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #PowerBI #ALXAfrica #FinancialInclusion #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   26,
   now()
@@ -4162,13 +4377,26 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-energy-access-sustainable-development-capstone/ ├── data/ │ ├── raw/ ← link to source, not the file itself │ └── cleaned/ ← your cleaned CSV ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── powerbi/ │ └── energy-access-sustainable-development-capstone.pbix ├── reports/ │ └── executive_summary.pdf ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+energy-access-sustainable-development-capstone/
+├── data/
+│   ├── raw/           ← link to source, not the file itself
+│   └── cleaned/       ← your cleaned CSV
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── powerbi/
+│   └── energy-access-sustainable-development-capstone.pbix
+├── reports/
+│   └── executive_summary.pdf
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of the dashboard.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -4180,7 +4408,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #PowerBI #ALXAfrica #EnergyAccess #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   27,
   now()
@@ -4328,13 +4556,26 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-agricultural-supply-chain-capstone/ ├── data/ │ ├── raw/ ← link to source, not the file itself │ └── cleaned/ ← your cleaned CSV ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── powerbi/ │ └── agricultural-supply-chain-capstone.pbix ├── reports/ │ └── executive_summary.pdf ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+agricultural-supply-chain-capstone/
+├── data/
+│   ├── raw/           ← link to source, not the file itself
+│   └── cleaned/       ← your cleaned CSV
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── powerbi/
+│   └── agricultural-supply-chain-capstone.pbix
+├── reports/
+│   └── executive_summary.pdf
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of the dashboard.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -4346,7 +4587,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #PowerBI #ALXAfrica #FoodSecurity #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   28,
   now()
@@ -4494,13 +4735,26 @@ Include written answers to at least three of these in your README or a separate 
 
 Organise your repository as follows:
 
-~~~text
-education-system-performance-capstone/ ├── data/ │ ├── raw/ ← link to source, not the file itself │ └── cleaned/ ← your cleaned CSV ├── sql/ │ ├── schema.sql │ └── analysis.sql ├── powerbi/ │ └── education-system-performance-capstone.pbix ├── reports/ │ └── executive_summary.pdf ├── images/ │ └── dashboard_screenshot.png └── README.md
+~~~
+education-system-performance-capstone/
+├── data/
+│   ├── raw/           ← link to source, not the file itself
+│   └── cleaned/       ← your cleaned CSV
+├── sql/
+│   ├── schema.sql
+│   └── analysis.sql
+├── powerbi/
+│   └── education-system-performance-capstone.pbix
+├── reports/
+│   └── executive_summary.pdf
+├── images/
+│   └── dashboard_screenshot.png
+└── README.md
 ~~~
 
 Your README should include: project title, business challenge, tools used, dataset source and link, key findings (3 bullet points), and a screenshot of the dashboard.
 
-Full GitHub Guide →
+[Full GitHub Guide →](/guides/github)
 
 ## LinkedIn Showcase Guidance
 
@@ -4512,7 +4766,7 @@ When sharing this project on LinkedIn, use this structure:
 -   **Link:** Include your GitHub repository link
 -   **Tags:** #DataAnalytics #SQL #PowerBI #ALXAfrica #EducationPolicy #PortfolioProject
 
-Full LinkedIn Guide →',
+[Full LinkedIn Guide →](/guides/linkedin)',
   'published',
   29,
   now()
