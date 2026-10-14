@@ -47,7 +47,7 @@ export function testMessage(sender: string, recipient: string) {
 
 export function reviewMessage(input: { sender: string; recipient: string; title: string; learnerName: string; body: string }) {
   if (!validEmail(input.sender) || !validEmail(input.recipient)) throw new Error("Invalid email address.");
-  const subjectText = `Your Portfolio Hub review: ${input.title.replace(/[\r\n]/g, " ")}`;
+  const subjectText = `Data Portfolio Project Review: ${input.title.replace(/[\r\n]/g, " ")}`;
   const words: string[] = [];
   let part = "";
   for (const character of subjectText) {

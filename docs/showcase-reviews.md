@@ -15,7 +15,8 @@ The shared sender must be connected in Email settings before sending reviews.
 ## Workflow and storage
 
 - `showcase_review_drafts` stores one draft per submission and staff author. Drafts
-  save explicitly and use random versions to protect against stale tabs. Saving
+  use random versions to protect against stale tabs. Send review saves the current
+  text before preparing the email. Save draft is optional for finishing later and
   does not send. Each staff member sees their own draft.
 - `showcase_reviews` stores the exact review body, author, recipient, learner name,
   submission title and send state. All staff can inspect this history. Text and

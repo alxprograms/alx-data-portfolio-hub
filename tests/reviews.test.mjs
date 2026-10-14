@@ -22,18 +22,23 @@ const record = {
   learner_name: "Learner", title: "Dashboard", body: "Good work. Add a README explaining your findings.",
 };
 
-function fixture({ denied = false, databaseError = null, result = { status: "sent", messageId: "gmail-id", error: null, reconnect: false } } = {}) {
+function fixture({ denied = false, databaseError = null, errorOn = null, configError = false, result = { status: "sent", messageId: "gmail-id", error: null, reconnect: false } } = {}) {
   const calls = [];
+  const savedRecord = { ...record };
   const query = { select: () => query, eq: () => query, single: async () => ({ data: { learner_email: record.recipient_email }, error: null }) };
   const db = {
     from: (table) => { calls.push(["from", table]); return query; },
-    rpc: async (name, args) => { calls.push([name, args]); return { data: name === "showcase_save_review_draft" ? "draft-version" : record, error: databaseError }; },
+    rpc: async (name, args) => {
+      calls.push([name, args]);
+      if (name === "showcase_save_review_draft") savedRecord.body = args.p_body;
+      return { data: name === "showcase_save_review_draft" ? "draft-version" : savedRecord, error: !errorOn || errorOn === name ? databaseError : null };
+    },
   };
   const actions = load("../src/app/actions/reviews.ts", {
     "next/cache": { revalidatePath() {} },
     "@/lib/auth/staff": { requireStaff: async () => { if (denied) throw new Error("Unauthenticated"); return { user: staff }; } },
     "@/lib/supabase/admin": { createAdminClient: () => { calls.push(["admin"]); return db; } },
-    "@/lib/gmail/server": { gmailConfig() {}, EMAIL_SETTINGS: "/staff/settings/email" },
+    "@/lib/gmail/server": { gmailConfig() { if (configError) throw new Error("Not configured"); }, EMAIL_SETTINGS: "/staff/settings/email" },
     "@/lib/gmail/security": load("../src/lib/gmail/security.ts", {}),
     "@/lib/gmail/send": { sendGmailMessage: async (version, raw) => { calls.push(["send", version, raw]); return result; } },
   });
@@ -52,6 +57,7 @@ test("draft validation rejects blank and oversized text; saving does not send or
   const { actions, calls } = fixture();
   for (const body of [" ", "x".repeat(10001)]) {
     assert.equal((await actions.saveReviewDraftAction({ submissionId: "submission", body, version: null })).ok, false);
+    assert.equal((await actions.sendReviewAction({ submissionId: "submission", body, version: null })).ok, false);
   }
   assert.equal(calls.length, 0);
   const response = await actions.saveReviewDraftAction({ submissionId: "submission", body: " Good work ", version: null });
@@ -63,9 +69,10 @@ test("draft validation rejects blank and oversized text; saving does not send or
   assert.ok(!calls.some(([name]) => name === "send"));
 });
 
-test("review email uses database recipient/body, and retains immutable review before sending", async () => {
+test("one-click sending saves fresh text first and uses the database recipient", async () => {
   const { actions, calls } = fixture();
-  const response = await actions.sendReviewAction({ submissionId: "submission", version: "draft-version", recipient: "attacker@example.com", body: "forged", status: "approved" });
+  const bodyText = "A fresh review that has never been saved.";
+  const response = await actions.sendReviewAction({ submissionId: "submission", version: null, recipient: "attacker@example.com", body: bodyText, status: "approved" });
   assert.equal(response.ok, true);
   assert.equal(response.consumed, true);
   const send = calls.find(([name]) => name === "send");
@@ -73,8 +80,12 @@ test("review email uses database recipient/body, and retains immutable review be
   assert.ok(mime.includes(`To: ${record.recipient_email}\r\n`));
   assert.ok(!mime.includes("attacker@example.com"));
   const body = Buffer.from(mime.split("\r\n\r\n")[1].replaceAll("\r\n", ""), "base64").toString();
-  assert.ok(body.includes(record.body));
-  assert.ok(!body.includes("forged"));
+  assert.ok(body.includes(bodyText));
+  const save = calls.find(([name]) => name === "showcase_save_review_draft")[1];
+  assert.equal(save.p_body, bodyText);
+  assert.equal(save.p_version, null);
+  assert.equal(calls.find(([name]) => name === "showcase_begin_review_send")[1].p_version, "draft-version");
+  assert.ok(calls.findIndex(([name]) => name === "showcase_save_review_draft") < calls.findIndex(([name]) => name === "showcase_begin_review_send"));
   assert.ok(calls.findIndex(([name]) => name === "showcase_begin_review_send") < calls.findIndex(([name]) => name === "send"));
   const finished = calls.find(([name]) => name === "showcase_finish_review_send")[1];
   assert.equal(finished.p_status, "sent");
@@ -85,7 +96,25 @@ test("review email uses database recipient/body, and retains immutable review be
 test("changed drafts and unavailable sender never send", async () => {
   for (const message of ["REVIEW_DRAFT_CHANGED", "REVIEW_SENDER_UNAVAILABLE", "REVIEW_CANNOT_RETRY"]) {
     const { actions, calls } = fixture({ databaseError: { message } });
-    assert.equal((await actions.sendReviewAction({ submissionId: "submission", version: "old" })).ok, false);
+    assert.equal((await actions.sendReviewAction({ submissionId: "submission", body: record.body, version: "old" })).ok, false);
+    assert.ok(!calls.some(([name]) => name === "send"));
+  }
+});
+
+test("edited drafts send the latest text; pre-send errors return the saved draft version", async () => {
+  const edited = fixture();
+  assert.equal((await edited.actions.sendReviewAction({ submissionId: "submission", body: "Updated review text", version: "existing-version" })).ok, true);
+  const save = edited.calls.find(([name]) => name === "showcase_save_review_draft")[1];
+  assert.equal(save.p_version, "existing-version");
+  assert.equal(save.p_body, "Updated review text");
+  for (const options of [
+    { configError: true },
+    { databaseError: { message: "REVIEW_SENDER_UNAVAILABLE" }, errorOn: "showcase_begin_review_send" },
+  ]) {
+    const { actions, calls } = fixture(options);
+    const response = await actions.sendReviewAction({ submissionId: "submission", body: record.body, version: null });
+    assert.equal(response.ok, false);
+    assert.equal(response.version, "draft-version");
     assert.ok(!calls.some(([name]) => name === "send"));
   }
 });
@@ -93,7 +122,7 @@ test("changed drafts and unavailable sender never send", async () => {
 test("failed and uncertain sends retain reviews with status; retries use exact saved review", async () => {
   for (const status of ["failed", "unknown"]) {
     const { actions, calls } = fixture({ result: { status, messageId: null, error: "Safe error", reconnect: true } });
-    const response = await actions.sendReviewAction({ submissionId: "submission", version: "draft-version" });
+    const response = await actions.sendReviewAction({ submissionId: "submission", body: record.body, version: "draft-version" });
     assert.equal(response.ok, false);
     assert.equal(response.consumed, true);
     assert.ok(response.message.includes("saved in history"));
@@ -112,7 +141,7 @@ test("review MIME preserves Unicode and line breaks, folds headers and prevents 
   const words = headers.match(/=\?UTF-8\?B\?[^?]+\?=/g);
   assert.ok(words.every((word) => word.length <= 75));
   const subject = words.map((word) => Buffer.from(word.slice(10, -2), "base64").toString()).join("");
-  assert.equal(subject, `Your Portfolio Hub review: ${input.title}`);
+  assert.equal(subject, `Data Portfolio Project Review: ${input.title}`);
   assert.ok(Buffer.from(body.replaceAll("\r\n", ""), "base64").toString().includes(input.body));
   assert.throws(() => reviewMessage({ ...input, recipient: "a@gmail.com\r\nBcc: b@gmail.com" }));
 });

@@ -61,20 +61,32 @@ async function deliverReservedReview(record: ReservedReview): Promise<ReviewActi
   return { ok: delivery.status === "sent", consumed: true, message: error ? `${message} History confirmation could not be saved. Refresh and check before sending again.` : message };
 }
 
-export async function sendReviewAction(input: { submissionId: string; version: string }): Promise<ReviewActionResult> {
+export async function sendReviewAction(input: { submissionId: string; body: string; version: string | null }): Promise<ReviewActionResult> {
   const { user } = await requireStaff();
+  if (typeof input.body !== "string" || input.body.trim().length < 1 || input.body.length > 10000) {
+    return { ok: false, message: "Write a review of up to 10,000 characters." };
+  }
   let record: ReservedReview;
+  let saved: { version?: string; updatedAt?: string } = {};
   try {
-    gmailConfig();
     const db = createAdminClient();
-    const { data: submission, error: readError } = await db.from("showcase_submissions").select("learner_email").eq("id", input.submissionId).single();
-    if (readError || !validEmail(submission?.learner_email)) return { ok: false, message: "The submission has no valid learner email. The review has not been sent." };
-    const { data, error } = await db.rpc("showcase_begin_review_send", {
-      p_submission: input.submissionId, p_version: input.version, p_actor: user.id, p_actor_email: user.email,
+    const draft = await db.rpc("showcase_save_review_draft", {
+      p_submission: input.submissionId, p_body: input.body.trim(), p_version: input.version,
+      p_actor: user.id, p_actor_email: user.email,
     });
-    if (error) return { ok: false, message: safeReviewError(error.message) };
+    if (draft.error) return { ok: false, message: safeReviewError(draft.error.message) };
+    saved = { version: draft.data, updatedAt: new Date().toISOString() };
+    gmailConfig();
+    const { data: submission, error: readError } = await db.from("showcase_submissions").select("learner_email").eq("id", input.submissionId).single();
+    if (readError || !validEmail(submission?.learner_email)) return { ok: false, ...saved, message: "Your draft is saved, but the submission has no valid learner email. The review has not been sent." };
+    const { data, error } = await db.rpc("showcase_begin_review_send", {
+      p_submission: input.submissionId, p_version: saved.version, p_actor: user.id, p_actor_email: user.email,
+    });
+    if (error) return { ok: false, ...saved, message: safeReviewError(error.message) };
     record = data;
-  } catch { return { ok: false, message: "Email sending is unavailable. Your draft is still saved. Check Email settings." }; }
+  } catch {
+    return { ok: false, ...saved, message: saved.version ? "Your draft is saved, but email sending is unavailable. Check Email settings." : "The review could not be saved. Please try again." };
+  }
   return deliverReservedReview(record);
 }
 

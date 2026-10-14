@@ -26,7 +26,7 @@ export function WrittenReviewPanel({ submissionId, learnerEmail, data }: {
   const [operation, setOperation] = useState<"save" | "send" | string | null>(null);
   const [pending, startTransition] = useTransition();
   const dirty = body.trim() !== savedBody;
-  const ready = Boolean(version && body.trim() && !dirty && data.canSend);
+  const ready = Boolean(body.trim() && data.canSend);
 
   function run(kind: "save" | "send" | "retry", reviewId?: string) {
     setResult(null);
@@ -35,10 +35,10 @@ export function WrittenReviewPanel({ submissionId, learnerEmail, data }: {
       try {
         const response = kind === "save"
           ? await saveReviewDraftAction({ submissionId, body, version })
-          : kind === "send" ? await sendReviewAction({ submissionId, version: version! })
+          : kind === "send" ? await sendReviewAction({ submissionId, body, version })
             : await retryReviewAction(reviewId!);
         setResult(response);
-        if (kind === "save" && response.ok && response.version) {
+        if (kind !== "retry" && response.version) {
           setVersion(response.version); setSavedBody(body.trim()); setBody(body.trim());
           setSavedAt(response.updatedAt ?? new Date().toISOString());
         }
@@ -69,7 +69,7 @@ export function WrittenReviewPanel({ submissionId, learnerEmail, data }: {
           <label htmlFor="learner-review">Your review</label>
           <textarea id="learner-review" value={body} onChange={(event) => setBody(event.target.value)} maxLength={10000} rows={8} required disabled={pending} aria-describedby="review-draft-hint" placeholder="Share what worked well and any improvements you would suggest…" />
           <div className="written-review__draft-state" id="review-draft-hint">
-            <span>{dirty ? "Unsaved changes. Save the draft before sending." : savedAt ? `Draft saved ${date(savedAt)}. Not sent yet.` : "Save a draft to return to it before sending."}</span>
+            <span>{dirty ? "Unsaved changes. Send now or save a draft for later." : savedAt ? `Draft saved ${date(savedAt)}. Not sent yet.` : "Send your review, or save a draft to finish later."}</span>
             <span>{body.length.toLocaleString()} / 10,000</span>
           </div>
           <div className="email-actions">
