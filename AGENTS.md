@@ -89,6 +89,7 @@ Implement only the following product capabilities unless the user explicitly exp
 - The learner confirms the work is theirs and agrees that the submitted public details, links, and cover image may be displayed.
 - An authorised staff member approves or declines the submission.
 - Approved submissions appear in the public showcase.
+- Public showcase queries use an explicit safe column list. Browser roles cannot select learner emails, even on approved records; staff contact reads must validate the staff session before using the server-only secret client.
 - Project briefs show approved showcase submissions connected to that project. If none exist, invite the learner to be the first to share their work.
 - This simple submission decision is separate from staff project publishing.
 - Keep this as a curated gallery of work, not learner profiles or a social feed.

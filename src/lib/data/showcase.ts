@@ -1,5 +1,6 @@
 import { requireStaff } from "@/lib/auth/staff";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import type { ShowcaseEntry, ShowcaseStatus } from "@/types/showcase";
 
 type ShowcaseRow = {
@@ -107,7 +108,9 @@ export async function getApprovedShowcasesForProject(projectSlug: string, limit 
 
 export async function getStaffShowcaseSubmissions(): Promise<ShowcaseEntry[]> {
   const { supabase } = await requireStaff();
-  const { data, error } = await supabase
+  // Contact emails are blocked for all browser roles, including authenticated.
+  // Validate the staff session before reading them with the server-only client.
+  const { data, error } = await createAdminClient()
     .from("showcase_submissions")
     .select(staffColumns)
     .order("submitted_at", { ascending: false });
