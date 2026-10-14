@@ -23,7 +23,6 @@ type ShowcaseRow = {
 
 const publicColumns = "id,slug,title,learner_name,project_title,tools,summary,github_url,live_url,cover_image_path,public_cover_image_path,status,submitted_at,projects(slug,course,domain)";
 const publicColumnsWithProject = "id,slug,title,learner_name,project_title,tools,summary,github_url,live_url,cover_image_path,public_cover_image_path,status,submitted_at,projects!inner(slug,course,domain)";
-const staffColumns = `${publicColumns},learner_email`;
 
 function projectDetails(row: ShowcaseRow) {
   return Array.isArray(row.projects) ? row.projects[0] : row.projects;
@@ -108,16 +107,30 @@ export async function getApprovedShowcasesForProject(projectSlug: string, limit 
 
 export async function getStaffShowcaseSubmissions(): Promise<ShowcaseEntry[]> {
   const { supabase } = await requireStaff();
-  // Contact emails are blocked for all browser roles, including authenticated.
-  // Validate the staff session before reading them with the server-only client.
-  const { data, error } = await createAdminClient()
+  // Keep project embedding on the staff session, which has project permissions.
+  const { data, error } = await supabase
     .from("showcase_submissions")
-    .select(staffColumns)
+    .select(publicColumns)
     .order("submitted_at", { ascending: false });
 
   if (error) throw new Error(`Unable to load showcase submissions: ${error.message}`);
 
-  return Promise.all(((data ?? []) as unknown as ShowcaseRow[]).map(async (row) => {
+  const rows = (data ?? []) as unknown as ShowcaseRow[];
+  if (!rows.length) return [];
+  // Only private contacts use the secret client, after staff authorization.
+  // Fetch in small batches so the ID filter doesn't exceed URL-size limits.
+  const admin = createAdminClient();
+  const contacts = await Promise.all(Array.from({ length: Math.ceil(rows.length / 100) }, async (_, index) => {
+    const { data: emails, error: emailError } = await admin
+      .from("showcase_submissions")
+      .select("id,learner_email")
+      .in("id", rows.slice(index * 100, (index + 1) * 100).map((row) => row.id));
+    if (emailError) throw new Error(`Unable to load staff contact details: ${emailError.message}`);
+    return emails ?? [];
+  }));
+  const emailById = new Map(contacts.flat().map((contact) => [contact.id, contact.learner_email]));
+
+  return Promise.all(rows.map(async (row) => {
     let imageUrl = publicImageUrl(supabase, row.public_cover_image_path);
     if (!imageUrl) {
       const { data: signed } = await supabase.storage
@@ -125,7 +138,7 @@ export async function getStaffShowcaseSubmissions(): Promise<ShowcaseEntry[]> {
         .createSignedUrl(row.cover_image_path, 3600);
       imageUrl = signed?.signedUrl ?? "";
     }
-    return toEntry(row, imageUrl);
+    return toEntry({ ...row, learner_email: emailById.get(row.id) }, imageUrl);
   }));
 }
 

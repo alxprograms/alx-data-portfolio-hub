@@ -16,12 +16,20 @@ const row = {
 function fixture({ denied = false, privateImage = false } = {}) {
   const calls = [];
   function client(kind) {
-    const record = { ...row, ...(kind === "admin" ? { learner_email: "private@example.com" } : {}) };
-    if (privateImage) record.public_cover_image_path = null;
+    const record = kind === "admin" ? { id: row.id, learner_email: "private@example.com" } : { ...row };
+    if (privateImage && kind === "session") record.public_cover_image_path = null;
     const result = { data: [record], error: null };
     const query = {
-      select: (columns) => { calls.push([kind, "select", columns]); return query; },
+      select: (columns) => {
+        calls.push([kind, "select", columns]);
+        // Reproduce the real database grants so using the secret client for
+        // project embedding, or the session for emails, fails this regression.
+        if (kind === "admin" && columns !== "id,learner_email") throw new Error("permission denied for table projects");
+        if (kind === "session" && columns.includes("learner_email")) throw new Error("permission denied for table showcase_submissions");
+        return query;
+      },
       eq: (...args) => { calls.push([kind, "eq", ...args]); return query; },
+      in: (...args) => { calls.push([kind, "in", ...args]); return query; },
       order: () => query, limit: () => query,
       maybeSingle: async () => ({ data: record, error: null }),
       then: (resolve, reject) => Promise.resolve(result).then(resolve, reject),
@@ -70,8 +78,11 @@ test("staff contact reads use the secret client only after validating staff", as
   const { api, calls } = fixture();
   const entries = await api.getStaffShowcaseSubmissions();
   assert.equal(entries[0].learnerEmail,"private@example.com");
+  assert.equal(entries[0].projectSlug,"project");
   assert.ok(calls.findIndex(([name]) => name === "auth") < calls.findIndex(([name]) => name === "admin-client"));
   assert.ok(calls.some(([kind, operation, columns]) => kind === "admin" && operation === "select" && columns.includes("learner_email")));
+  assert.ok(calls.some(([kind, operation, columns]) => kind === "session" && operation === "select" && columns.includes("projects(")));
+  assert.ok(calls.some(([kind, operation, field, ids]) => kind === "admin" && operation === "in" && field === "id" && ids[0] === row.id));
 });
 
 test("unauthorized staff list and detail requests cannot access the secret client", async () => {

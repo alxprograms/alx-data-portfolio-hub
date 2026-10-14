@@ -11,7 +11,9 @@ staff update permissions remain unchanged. No records or email values are change
 
 Staff list/detail pages read emails with `createAdminClient()` only after
 `requireStaff()` verifies the staff session. Cover-image signing continues to use
-the staff session and its storage policies. The public gallery, individual
+the staff session and its storage policies. Project embedding also uses the staff
+session; the secret client fetches only IDs and private emails, without joining
+`projects`. The public gallery, individual
 showcase pages, home-page images and project-related showcases keep their existing
 queries and public cover URLs. This uses the existing `SUPABASE_SECRET_KEY`; no new
 environment variables are required.
