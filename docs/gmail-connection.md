@@ -72,7 +72,8 @@ Google OAuth client and does not change Supabase staff login.
   failure after sending starts is shown as confirmation unavailable; it is never
   automatically retried. An interrupted server invocation may leave a pending test;
   staff should check the inbox before sending another test.
-- No learner review or feedback behaviour is implemented by this integration.
+- Staff showcase pages use this sender for written learner reviews. See
+  [Written reviews](showcase-reviews.md) for the independent review workflow.
 
 ## Verification
 

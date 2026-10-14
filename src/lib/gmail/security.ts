@@ -44,3 +44,25 @@ export function testMessage(sender: string, recipient: string) {
     "Content-Transfer-Encoding: base64", "", body,
   ].join("\r\n")).toString("base64url");
 }
+
+export function reviewMessage(input: { sender: string; recipient: string; title: string; learnerName: string; body: string }) {
+  if (!validEmail(input.sender) || !validEmail(input.recipient)) throw new Error("Invalid email address.");
+  const subjectText = `Your Portfolio Hub review: ${input.title.replace(/[\r\n]/g, " ")}`;
+  const words: string[] = [];
+  let part = "";
+  for (const character of subjectText) {
+    if (Buffer.byteLength(part + character, "utf8") > 42) {
+      words.push(`=?UTF-8?B?${Buffer.from(part, "utf8").toString("base64")}?=`);
+      part = "";
+    }
+    part += character;
+  }
+  if (part) words.push(`=?UTF-8?B?${Buffer.from(part, "utf8").toString("base64")}?=`);
+  const text = `Hi ${input.learnerName},\n\nThe team has reviewed your submission, "${input.title}".\n\n${input.body}\n\nALX Data Portfolio Hub`;
+  const body = Buffer.from(text, "utf8").toString("base64").match(/.{1,76}/g)?.join("\r\n") ?? "";
+  return Buffer.from([
+    `From: ${input.sender}`, `To: ${input.recipient}`, `Subject: ${words.join("\r\n ")}`,
+    "MIME-Version: 1.0", 'Content-Type: text/plain; charset="UTF-8"',
+    "Content-Transfer-Encoding: base64", "", body,
+  ].join("\r\n")).toString("base64url");
+}

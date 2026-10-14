@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:gmail": "node --experimental-strip-types --test tests/gmail-*.test.mjs",
+    "test:reviews": "node --experimental-strip-types --test tests/reviews.test.mjs",
     "seed:generate": "node scripts/import-legacy-projects.mjs"
   },
   "dependencies": {

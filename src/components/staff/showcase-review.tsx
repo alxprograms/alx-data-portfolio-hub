@@ -7,8 +7,10 @@ import { decideShowcaseAction } from "@/app/actions/showcase";
 import { ShowcaseVisual } from "@/components/showcase-visual";
 import { formatDate } from "@/lib/format-date";
 import type { ShowcaseEntry, ShowcaseStatus } from "@/types/showcase";
+import type { ReviewPanelData } from "@/types/review";
+import { WrittenReviewPanel } from "@/components/staff/written-review-panel";
 
-export function ShowcaseReview({ entry }: { entry: ShowcaseEntry }) {
+export function ShowcaseReview({ entry, reviewData }: { entry: ShowcaseEntry; reviewData: ReviewPanelData }) {
   const router = useRouter();
   const [decision, setDecision] = useState<ShowcaseStatus>(entry.status);
   const [message, setMessage] = useState("");
@@ -46,8 +48,11 @@ export function ShowcaseReview({ entry }: { entry: ShowcaseEntry }) {
             <div><span>Tools used</span><p>{entry.tools.join(", ")}</p></div>
             <div><span>Links</span><p><a href={entry.githubUrl} rel="noreferrer" target="_blank">GitHub repository ↗</a>{entry.liveUrl && <a href={entry.liveUrl} rel="noreferrer" target="_blank">Live project ↗</a>}</p></div>
           </section>
+          <WrittenReviewPanel submissionId={entry.id} learnerEmail={entry.learnerEmail ?? ""} data={reviewData} />
         </div>
         <aside className="staff-review-aside">
+          <p>Showcase visibility</p>
+          <p className="staff-review-aside__explanation">Approving publishes this project on the public showcase pages. Declining keeps it off the showcase. Neither action sends a review to the learner.</p>
           <p>Review checklist</p>
           <ul><li><span>✓</span>Submission belongs to the learner</li><li><span>✓</span>Links open correctly</li><li><span>✓</span>Summary clearly explains the work</li><li><span>✓</span>Cover image is suitable for public display</li></ul>
           <div><span>Learner email</span><strong>{entry.learnerEmail}</strong><small>Private. Use only for submission follow-up.</small></div>

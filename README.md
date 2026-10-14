@@ -24,6 +24,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 For the staff Gmail sender connection, environment settings and migration steps,
 see [Gmail connection setup](docs/gmail-connection.md).
+For private learner feedback on submissions, see [Written reviews](docs/showcase-reviews.md).
 
 To learn more about Next.js, take a look at the following resources:
 

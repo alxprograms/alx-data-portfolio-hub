@@ -95,8 +95,10 @@ Implement only the following product capabilities unless the user explicitly exp
 
 ### Feedback
 
-- Include a small feedback mechanism in the first version.
-- The exact feedback interaction is not yet decided.
+- Staff can save their own written-review draft on a showcase submission, email it to the learner and view private review/send history.
+- Review emails use the shared Gmail sender. The recipient comes from the submission, never browser input.
+- Sending feedback is independent of showcase approval/decline. Approval publishes the project; it does not automatically email feedback.
+- Saved drafts are private to their author. Once sending begins, preserve the exact review in staff history. Retry only confirmed failures, not successful or uncertain sends.
 - Do not turn this into a support desk, ticket system, mentoring workflow, or LMS feature.
 
 ## Explicit non-goals
@@ -108,7 +110,7 @@ Implement only the following product capabilities unless the user explicitly exp
 - The active sender is database-managed and may be replaced by staff. Do not fix it in an environment variable or introduce administrator roles for this feature.
 - Store refresh tokens encrypted server-side with AES-256-GCM. Only the server's `SUPABASE_SECRET_KEY` client can access credential tables. Never expose tokens or raw provider errors.
 - Test emails have fixed content and offer two recipient choices: the verified signed-in staff email or a validated address, including external recipients.
-- This scope is connection management and test sending only. Do not add learner feedback workflows or general-purpose email composition without an explicit request.
+- Gmail connection management and test sending are separate from the approved written-review flow on staff submission pages. Do not add general-purpose email composition.
 
 Do not add these without a direct user request:
 
@@ -337,7 +339,6 @@ Do not attempt all product capabilities in one unreviewable change.
 
 These questions remain deliberately unresolved. Do not silently turn an assumption into permanent product scope:
 
-- The exact first-version feedback interaction
 - Whether the account-free “I’m Building This” identity flow later moves to ALX identity
 - The final official ALX subdomain
 - Whether and when Supabase services migrate fully into AWS
