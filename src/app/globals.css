@@ -4246,6 +4246,58 @@ svg {
   margin: 8px 0 0 !important;
 }
 
+.email-settings-page { max-width: 1100px; }
+.email-settings { margin-top: 42px; }
+.email-section { border-top: 1px solid var(--line-strong); padding: 30px 0 36px; }
+.email-section h2 { color: var(--navy); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.025em; margin: 0 0 12px; }
+.email-section__heading { align-items: center; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; }
+.email-section__heading h2 { margin-bottom: 0; }
+.email-status { background: var(--surface); border: 1px solid var(--line-strong); color: var(--muted); font-size: 0.75rem; font-weight: 650; padding: 5px 10px; }
+.email-status--connected { background: oklch(0.96 0.025 155); border-color: oklch(0.78 0.07 155); color: oklch(0.38 0.09 155); }
+.email-sender { color: var(--navy); font-size: 1.6rem; font-weight: 650; letter-spacing: -0.035em; margin: 22px 0 8px; overflow-wrap: anywhere; }
+.email-description { color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin: 0 0 20px; max-width: 65ch; }
+.email-facts { display: grid; gap: 24px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 26px 0; }
+.email-facts dt { color: var(--muted); font-size: 0.72rem; margin-bottom: 6px; }
+.email-facts dd { font-size: 0.83rem; margin: 0; overflow-wrap: anywhere; }
+.email-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; }
+.email-settings button { cursor: pointer; }
+.email-button { background: var(--surface); border: 1px solid var(--line-strong); color: var(--navy); font-size: 0.82rem; font-weight: 650; min-height: 46px; padding: 0 16px; }
+.email-button:hover { border-color: var(--blue); color: var(--blue); }
+.email-button--quiet { background: transparent; border-color: transparent; color: var(--muted); }
+.email-settings button:disabled { cursor: not-allowed; opacity: 0.5; transform: none; }
+.email-settings :is(button,input):focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.email-notice { background: var(--surface); border: 1px solid var(--line); font-size: 0.88rem; line-height: 1.6; margin: 0 0 24px; padding: 16px 20px; }
+.email-notice p { margin: 0; }
+.email-notice small { display: block; margin-top: 8px; overflow-wrap: anywhere; }
+.email-notice--success { background: oklch(0.96 0.025 155); border-color: oklch(0.78 0.07 155); color: oklch(0.38 0.09 155); }
+.email-notice--error { background: oklch(0.96 0.02 35); border-color: oklch(0.8 0.05 35); color: oklch(0.4 0.1 35); }
+.email-confirmation { background: var(--surface); border: 1px solid var(--line-strong); margin-top: 20px; padding: 22px; }
+.email-confirmation h3 { font-size: 1rem; margin: 0 0 8px; }
+.email-confirmation p { color: var(--muted); font-size: 0.87rem; line-height: 1.6; margin: 0 0 18px; max-width: 65ch; }
+.email-test-form { max-width: 560px; }
+.email-test-form fieldset { border: 0; display: grid; gap: 10px; margin: 0 0 20px; padding: 0; }
+.email-test-form fieldset:disabled { opacity: 0.55; }
+.email-recipient { align-items: start; background: var(--surface); border: 1px solid var(--line); cursor: pointer; display: flex; gap: 14px; padding: 16px 18px; }
+.email-recipient.is-selected { border-color: var(--blue); }
+.email-recipient input { accent-color: var(--blue); flex-shrink: 0; height: 16px; margin-top: 3px; width: 16px; }
+.email-recipient strong { display: block; font-size: 0.88rem; font-weight: 650; }
+.email-recipient small { color: var(--muted); display: block; font-size: 0.78rem; margin-top: 4px; overflow-wrap: anywhere; }
+.email-recipient-input label { display: block; font-size: 0.8rem; font-weight: 650; margin: 10px 0 8px; }
+.email-recipient-input input { background: var(--surface); border: 1px solid var(--line-strong); color: var(--ink); font-size: 1rem; min-height: 48px; padding: 10px 14px; width: 100%; }
+.email-last-test { border-top: 1px solid var(--line); font-size: 0.83rem; line-height: 1.6; margin-top: 24px; padding-top: 18px; }
+.email-last-test p { color: var(--muted); margin: 6px 0; overflow-wrap: anywhere; }
+.email-last-test small { color: var(--muted); overflow-wrap: anywhere; }
+.email-history { list-style: none; margin: 20px 0 0; padding: 0; }
+.email-history li { align-items: start; border-top: 1px solid var(--line); display: flex; gap: 24px; justify-content: space-between; padding: 16px 0; }
+.email-history strong { font-size: 0.83rem; font-weight: 600; overflow-wrap: anywhere; }
+.email-history p { color: var(--muted); font-size: 0.76rem; margin: 5px 0 0; overflow-wrap: anywhere; }
+.email-history time { color: var(--muted); flex-shrink: 0; font-size: 0.73rem; padding-top: 3px; }
+@media (max-width: 700px) {
+  .email-facts { gap: 18px; grid-template-columns: 1fr; }
+  .email-sender { font-size: 1.3rem; }
+  .email-history li { flex-direction: column; gap: 6px; }
+}
+
 .staff-login-page {
   align-items: center;
   background: var(--navy-deep);

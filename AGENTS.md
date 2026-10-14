@@ -101,6 +101,15 @@ Implement only the following product capabilities unless the user explicitly exp
 
 ## Explicit non-goals
 
+### Gmail sender connection (October 2026)
+
+- `/staff/settings/email` lets any authenticated ALX staff member manage one shared Gmail sender and see connection/test history.
+- Use the separate Gmail Sender Google OAuth client, not the Supabase staff-login client. Normal staff login must not request Gmail permissions.
+- The active sender is database-managed and may be replaced by staff. Do not fix it in an environment variable or introduce administrator roles for this feature.
+- Store refresh tokens encrypted server-side with AES-256-GCM. Only the server's `SUPABASE_SECRET_KEY` client can access credential tables. Never expose tokens or raw provider errors.
+- Test emails have fixed content and offer two recipient choices: the verified signed-in staff email or a validated address, including external recipients.
+- This scope is connection management and test sending only. Do not add learner feedback workflows or general-purpose email composition without an explicit request.
+
 Do not add these without a direct user request:
 
 - A full learning-management system

@@ -9,6 +9,7 @@ export function StaffSidebar({ commitmentCount, submissionCount }: { commitmentC
     { href: "/staff", label: "Projects", count: null },
     { href: "/staff/commitments", label: "Learner commitments", count: commitmentCount },
     { href: "/staff/showcase", label: "Showcase submissions", count: submissionCount },
+    { href: "/staff/settings/email", label: "Email settings", count: null },
   ];
 
   return (
